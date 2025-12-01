@@ -18,3 +18,19 @@ themeToggle.addEventListener('click', () => {
     themeToggle.textContent = '🌙';
   }
 });
+let lastScroll = 0;
+const toggleButton = document.getElementById('theme-toggle');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > lastScroll) {
+    // scrolling down → hide button
+    toggleButton.classList.add('hide');
+  } else {
+    // scrolling up → show button
+    toggleButton.classList.remove('hide');
+  }
+
+  lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+});
