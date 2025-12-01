@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wigtownshire Wargamers</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <header>
+    <h1>Wigtownshire Wargamers</h1>
+  </header>
+
+  <nav>
+    <div class="hamburger">&#9776;</div> <!-- Hamburger menu for mobile -->
+    <a href="#about">About</a>
+    <a href="#events">Events</a>
+    <a href="#join">Join Us</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    
+    <a href="https://www.instagram.com/wigtownshire_wargamers?fbclid=IwY2xjawOabzpleHRuA2FlbQIxMABicmlkETAyWWl3RzVuTkM0MzE2cjdFc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHn3PX85HgX-JBNNUoqXBAlvYDKroNQ87GyZfw-fu5rEJxktcyNYZBURD5gWl_aem_W_MchI4S9_2qAnl_V1TsHw&brid=FshKJllv0HFYN0OHraLSSA" target="_blank" class="icon-link">
+    <i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=61558303088413" target="_blank" class="social"><i class="fab fa-facebook"></i></a>
+   <a href="https://discord.com/invite/discord.gg/63KRXus8T7" target="_blank" class="social"><i class="fab fa-discord"></i></a>
+  </nav>
+
+  <div class="container">
+
+    <section id="about" class="section">
+      <h2>About Us</h2>
+      <p>
+        Welcome to the Wigtownshire Wargamers — a community of tabletop strategy enthusiasts
+        passionate about Warhammer 40,000, Age of Sigmar, Horus Heresy, Kill Team,
+        and other miniature wargames. Whether you're a seasoned commander or brand new to
+        the hobby, you're welcome at our table.
+
+        We're not all about warhammer though, no no! We also love to dive into board games, 
+        tabletop RP such as D&D and Pathfinder, and card games like Magic: The Gathering.
+      </p>
+    </section>
+
+    <section id="events" class="section">
+      <h2>Upcoming Events</h2>
+
+      <div class="event-card">
+        <h3>Club night!</h3>
+        <p><strong>Date:</strong> Every second and fourth Sunday of the month </p>
+        <p><strong>Location:</strong> Millenium center, 75 George St, Stranraer, DG9 8DX</p>
+        <p>Join us for another evening of gaming, laughs, and good company! 
+            Whether you’re into miniature wargames, board games, or tabletop RPGs, there’s 
+            always something on the go.
+            
+            Bring your armies, dice, or favourite game—or just come along and join in!
+            New players are always welcome, and there’s usually a mix of casual and narrative
+            games happening each week..</p>
+      </div>
+
+    <section id="join" class="section">
+      <h2>Join Our Community</h2>
+      <p>
+        Interested in joining? We welcome players of at least 18+ at all experience levels.
+        Drop in at any event or send us a message to get started. We can't wait to meet you!
+      </p>
+    </section>
+
+    <section id="gallery" class="section">
+      <h2>Gallery</h2>
+      <p>Coming soon — battle reports, painted minis, and terrain builds!</p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact Us</h2>
+      <p>Email: wigtownshirewargamers@gmail.com</p>
+ 
+  <p>Feel free to reach out to us on our social media platforms!</p>
+    </section>
+
+  <section class="social-icons">
+    <a href="https://www.instagram.com/wigtownshire_wargamers?fbclid=IwY2xjawOabzpleHRuA2FlbQIxMABicmlkETAyWWl3RzVuTkM0MzE2cjdFc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHn3PX85HgX-JBNNUoqXBAlvYDKroNQ87GyZfw-fu5rEJxktcyNYZBURD5gWl_aem_W_MchI4S9_2qAnl_V1TsHw&brid=FshKJllv0HFYN0OHraLSSA" target="_blank" class="social"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=61558303088413" target="_blank" class="social"><i class="fab fa-facebook"></i></a>
+    <a href="https://discord.com/invite/discord.gg/63KRXus8T7" target="_blank" class="social"><i class="fab fa-discord"></i></a>
+ 
+</section>
+
+  </div>
+
+  <footer>
+    Coded by G.Snow
+  </footer>
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelectorAll('nav a');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.forEach(link => link.classList.toggle('active'));
+  });
+</script>
+
+</body>
+</html>
