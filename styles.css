@@ -1,6 +1,7 @@
 /* ===========================
    THEME VARIABLES
 =========================== */
+
 :root{
   --accent:#6f91ad;
   --bg:#eef2f6;
@@ -25,12 +26,14 @@ body.dark{
   --card-border:#333;
 }
 
+
 /* ===========================
    BASE
 =========================== */
+
 body{
   margin:0;
-  font-family:Segoe UI,Tahoma,sans-serif;
+  font-family:Segoe UI, Tahoma, sans-serif;
   background:var(--bg);
   color:var(--text);
 }
@@ -39,14 +42,16 @@ img{
   max-width:100%;
 }
 
+
 /* ===========================
    BACKGROUND SCENE
 =========================== */
+
 body::before{
   content:"";
   position:fixed;
   inset:0;
-  z-index:-1;
+  z-index:-2;
 
   background:
     url("assets/game2.jpg") left center / 35% auto no-repeat,
@@ -55,16 +60,21 @@ body::before{
       rgba(13,13,13,.90),
       rgba(13,13,13,.96)
     );
+
+  background-attachment:fixed;
+  pointer-events:none;
 }
+
 
 /* ===========================
    THEME TOGGLE
 =========================== */
+
 #theme-toggle{
   position:fixed;
-  top:72px;               /* pushed down below navbar */
+  top:64px;
   right:16px;
-  z-index:998;
+  z-index:1000;
 
   font-size:1.1rem;
   padding:7px 10px;
@@ -74,85 +84,13 @@ body::before{
 
   cursor:pointer;
   box-shadow:0 4px 8px rgba(0,0,0,.25);
+  transition:.2s ease;
 }
 
 #theme-toggle:hover{
   transform:scale(1.1);
 }
 
-/* ===========================
-   STICKY NAV BAR
-=========================== */
-
-nav{
-  position:sticky;
-  top:0;
-  z-index:999;
-
-  background:var(--header-bg);
-  backdrop-filter:blur(6px);
-  box-shadow:0 3px 12px rgba(0,0,0,0.15);
-
-  padding:12px 24px;
-
-  display:flex;
-  justify-content:flex-end; /* right align */
-  align-items:center;
-  gap:40px;
-}
-
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:36px;
-}
-
-.nav-links a{
-  color:var(--link);
-  text-decoration:none;
-  font-weight:600;
-  letter-spacing:0.04em;
-  position:relative;
-}
-
-/* underline hover */
-.nav-links a::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-4px;
-  width:0;
-  height:2px;
-  background:var(--accent);
-  transform:translateX(-50%);
-  transition:.25s ease;
-}
-
-.nav-links a:hover::after{
-  width:100%;
-}
-
-.nav-links a:hover{
-  color:var(--hover);
-}
-
-/* Social Icons */
-
-.nav-social-icons{
-  display:flex;
-  gap:16px;
-}
-
-.nav-social-icons a{
-  color:var(--link);
-  font-size:1.25rem;
-  transition:transform .2s ease,color .2s ease;
-}
-
-.nav-social-icons a:hover{
-  color:var(--hover);
-  transform:translateY(-2px) scale(1.1);
-}
 
 /* ===========================
    HERO
@@ -172,9 +110,6 @@ nav{
 
   font-family:"Protest Revolution", sans-serif;
   text-align:center;
-
-  position:relative;
-  overflow:hidden;
 }
 
 .logo{
@@ -185,28 +120,87 @@ nav{
   font-size:clamp(2.5rem, 5vw, 4rem);
 }
 
-/* Dice */
 
-.hero-dice{
+/* ===========================
+   STICKY NAVBAR
+=========================== */
+
+.main-nav{
+  position:sticky;
+  top:0;
+  z-index:999;
+
+  background:var(--header-bg);
+  backdrop-filter:blur(6px);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:10px 24px;
+  box-shadow:0 3px 12px rgba(0,0,0,0.15);
+}
+
+/* Logo */
+.nav-logo img{
+  width:42px;
+}
+
+/* Links */
+.nav-links{
+  display:flex;
+  gap:40px;
+}
+
+.nav-links a{
+  color:var(--link);
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:0.04em;
+  position:relative;
+}
+
+.nav-links a:hover{
+  color:var(--hover);
+}
+
+.nav-links a::after{
+  content:"";
   position:absolute;
-  width:140px;
-  pointer-events:none;
-  filter:drop-shadow(0 10px 8px rgba(0,0,0,0.35));
+  left:50%;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transform:translateX(-50%);
+  transition:width .25s;
 }
 
-.dice-left{
-  left:6%;
-  top:10%;
+.nav-links a:hover::after{
+  width:100%;
 }
 
-.dice-right{
-  right:6%;
-  top:12%;
+/* Social */
+
+.nav-social-icons{
+  display:flex;
+  gap:16px;
+}
+
+.nav-social-icons a{
+  color:var(--link);
+  font-size:1.2rem;
+  transition:.2s ease;
+}
+
+.nav-social-icons a:hover{
+  color:var(--hover);
+  transform:translateY(-2px) scale(1.1);
 }
 
 
 /* ===========================
-   CONTENT
+   MAIN CONTENT
 =========================== */
 
 .container{
@@ -225,17 +219,46 @@ h2{
   padding-left:10px;
 }
 
-/* Cards */
+
+/* ===========================
+   EVENT CARDS
+=========================== */
 
 .event-card{
   background:var(--card-bg);
   border:1px solid var(--card-border);
   border-radius:14px;
-  padding:28px;
 
+  padding:28px;
   backdrop-filter:blur(6px);
-  box-shadow:0 8px 16px rgba(0,0,0,0.25);
+
+  /* Base shadow */
+  box-shadow:0 8px 16px rgba(0,0,0,.25);
+
+  /* Smooth glow animation */
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
+
+/* ✨ Hover glow effect */
+.event-card:hover{
+  transform: translateY(-4px);
+
+  border-color: var(--accent);
+
+  box-shadow:
+    0 12px 26px rgba(0,0,0,0.35),
+    0 0 12px rgba(111,145,173,0.45),
+    0 0 24px rgba(111,145,173,0.15);
+}
+.event-card:hover h2 {
+  color: #9cc4df;
+}
+
+
+
 
 /* ===========================
    BUTTONS
@@ -273,9 +296,9 @@ h2{
     rgba(111,145,173,.75),
     rgba(40,90,119,.85)
   );
-
   color:white;
 }
+
 
 /* ===========================
    CALENDAR
@@ -290,6 +313,7 @@ h2{
   margin-bottom:10px;
 }
 
+
 /* ===========================
    FOOTER
 =========================== */
@@ -301,23 +325,20 @@ footer{
   text-align:center;
 }
 
+
 /* ===========================
    MOBILE
 =========================== */
 
 @media(max-width:768px){
 
-  nav{
+  .main-nav{
+    flex-wrap:wrap;
+    gap:22px;
     justify-content:center;
-    gap:24px;
   }
 
   .nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  .hero-dice{
-    width:90px;
+    gap:20px;
   }
 }
