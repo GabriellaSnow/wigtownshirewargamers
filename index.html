@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wigtownshire Wargamers</title>
 
 <link rel="stylesheet" href="styles.css">
@@ -13,48 +13,72 @@
 <body>
 
 <!-- THEME TOGGLE -->
-<button id="theme-toggle" title="Toggle light/dark mode">☀️</button>
+<button id="theme-toggle" title="Toggle light/dark mode">🌙</button>
 
-
-<!-- HEADER -->
-<header class="banner">
-  <img src="assets/logoalone.png" class="logo" alt="Wigtownshire Wargamers logo">
-  <h1>Wigtownshire Wargamers</h1>
-</header>
-
-
-<!-- NAV -->
+<!-- NAVBAR -->
 <nav>
-  <div class="hamburger">&#9776;</div>
 
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#calendar">Calendar</a>
     <a href="#join">Join</a>
+    <a href="#calendar">Calendar</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
   </div>
 
   <div class="nav-social-icons">
-    <a href="https://www.instagram.com/wigtownshire_wargamers" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/profile.php?id=61558303088413" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://discord.com/invite/63KRXus8T7" target="_blank"><i class="fab fa-discord"></i></a>
+    <a href="https://www.instagram.com/wigtownshire_wargamers" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61558303088413" target="_blank">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://discord.com/invite/63KRXus8T7" target="_blank">
+      <i class="fab fa-discord"></i>
+    </a>
   </div>
+
 </nav>
+
+
+<!-- HERO -->
+<header class="hero banner">
+
+  <img src="assets/logoalone.png" class="logo" alt="Wigtownshire Wargamers logo">
+
+  <div class="banner-text">
+    <h1>Wigtownshire Wargamers</h1>
+  </div>
+
+  <!-- Dice -->
+  <img src="assets/dice1.png" class="hero-dice dice-left" alt="Dice">
+  <img src="assets/dice2.png" class="hero-dice dice-right" alt="Dice">
+
+</header>
 
 
 <!-- MAIN -->
 <div class="container">
 
-<section id="about" class="section">
+<section id="join" class="section">
   <div class="event-card">
-    <h2>About Us</h2>
+
+    <h2>Join Our Community</h2>
+
     <p>
-      We are a community of tabletop gamers passionate about Warhammer 40,000, Age of Sigmar,
-      Horus Heresy, Kill Team, board games, tabletop RPGs and card gaming.
+      Join us for an evening of gaming, laughs, and good company!
+      Whether you’re into miniature wargames, board games, or tabletop RPGs,
+      there’s always something on the go.
       <br><br>
-      Beginners and veterans alike are always welcome.
+      Bring your armies, dice, or favourite game—or just come along and join in!
+      New players are always welcome.
+      <br><br>
+      All players 18+ welcome.
     </p>
+
+    <a href="mailto:wigtownshirewargamers@gmail.com" class="cta-button">
+      Join the Warband
+    </a>
+
   </div>
 </section>
 
@@ -65,7 +89,7 @@
     <h2>Club Calendar</h2>
 
     <p><strong>Where:</strong> Millennium Centre, 75 George St, Stranraer, DG9 8DX</p>
-    <p>We meet <strong>every second and fourth Sunday</strong> of the month at <strong>6:00pm</strong>.</p>
+    <p><strong>When:</strong> Every 2nd and 4th Sunday at <strong>6:00pm</strong></p>
 
     <a id="add-all-calendar" class="cta-button" download>
       Add all dates to your calendar
@@ -74,19 +98,6 @@
     <h3>Next sessions</h3>
     <ul id="club-schedule"></ul>
 
-  </div>
-</section>
-
-
-<section id="join" class="section">
-  <div class="event-card">
-    <h2>Join Our Community</h2>
-    <p>
-      All players 18+ welcome. Turn up to any meeting or send us an email to get started.
-    </p>
-    <a href="mailto:wigtownshirewargamers@gmail.com" class="cta-button">
-      Join the Warband
-    </a>
   </div>
 </section>
 
@@ -101,7 +112,7 @@
 
 <section id="contact" class="section">
   <div class="event-card">
-    <h2>Contact Us</h2>
+    <h2>Contact</h2>
     <p>Email: wigtownshirewargamers@gmail.com</p>
   </div>
 </section>
@@ -113,7 +124,7 @@
   Coded by G. Snow — 2025
 </footer>
 
-
 <script src="script.js" defer></script>
+
 </body>
 </html>
