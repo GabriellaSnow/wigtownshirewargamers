@@ -112,6 +112,8 @@ body::before{
 
   font-family: "Protest Revolution", sans-serif;
   text-align: center;
+   padding-top: 20px;
+  padding-bottom: 20px;
 }
 .hero::after{
   content:"";
@@ -129,12 +131,17 @@ body::before{
 }
 
 
-.logo{
-  width:120px;
+.logo {
+  width: 160px;
+  max-width: 40vw;
+  margin-bottom: 8px;
 }
 
-.banner-text h1{
-  font-size:clamp(2.5rem, 5vw, 4rem);
+.banner-text h1 {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  letter-spacing: 0.08em;
+  margin: 0;
+  line-height: 1.05;
 }
 
 
