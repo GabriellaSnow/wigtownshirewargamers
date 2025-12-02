@@ -96,7 +96,7 @@ function getNextDates(count) {
 
       const week = Math.floor((d.getDate() - 1) / 7) + 1;
 
-      if (week === 2 || week === 4) {
+      if (week === 1 || week === 3) {
         dates.push(new Date(d));
       }
 
@@ -145,7 +145,7 @@ SUMMARY:Wigtownshire Wargamers Club Night
 DTSTART:${start}
 DTEND:${end}
 LOCATION:Millennium Centre, 75 George St, Stranraer
-DESCRIPTION:Every second and fourth Sunday at 6pm
+DESCRIPTION:Every first and third Sunday at 6pm
 END:VEVENT`;
 
   }).join("");
