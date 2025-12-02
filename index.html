@@ -1,111 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wigtownshire Wargamers</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Wigtownshire Wargamers</title>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <!-- Header -->
+
+<!-- THEME TOGGLE -->
+<button id="theme-toggle" title="Toggle light/dark mode">☀️</button>
+
+
+<!-- HEADER -->
 <header class="banner">
-  <div class="banner-img left-img">
-    <img src="assets/game1.jpg" alt="Left banner image">
-  </div>
-
-  <div class="banner-text">
-    <h1>Wigtownshire Wargamers</h1>
-  </div>
-
-  <div class="banner-img right-img">
-    <img src="assets/game2.jpg" alt="Right banner image">
-  </div>
+  <img src="assets/logoalone.png" class="logo" alt="Wigtownshire Wargamers logo">
+  <h1>Wigtownshire Wargamers</h1>
 </header>
 
 
-  <!-- Navbar -->
-  <nav>
-    <div class="hamburger">&#9776;</div>
+<!-- NAV -->
+<nav>
+  <div class="hamburger">&#9776;</div>
 
-    <!-- Main navigation links -->
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#events">Events</a>
-      <a href="#join">Join Us</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-    <!-- Social Icons for desktop/tablet -->
-    <div class="nav-social-icons">
-      <a href="https://www.instagram.com/wigtownshire_wargamers" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/profile.php?id=61558303088413" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://discord.com/invite/63KRXus8T7" target="_blank"><i class="fab fa-discord"></i></a>
-    </div>
-
-    <!-- Theme toggle -->
-    <button id="theme-toggle">🌙</button>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="container">
-    <section id="about" class="section">
-      <h2>About Us</h2>
-      <p>
-        Welcome to the Wigtownshire Wargamers — a community of tabletop strategy enthusiasts
-        passionate about Warhammer 40,000, Age of Sigmar, Horus Heresy, Kill Team,
-        and other miniature wargames. Whether you're a seasoned commander or brand new to
-        the hobby, you're welcome at our table. 
-        <br><br>
-        We're not all about warhammer though! We also love board games, tabletop RPGs such as D&D and Pathfinder, and card games like Magic: The Gathering.
-      </p>
-    </section>
-
-    <section id="events" class="section">
-      <h2>Upcoming Events</h2>
-      <div class="event-card">
-        <h3>Club night!</h3>
-        <p><strong>Date:</strong> Every second and fourth Sunday of the month </p>
-        <p><strong>Location:</strong> Millenium center, 75 George St, Stranraer, DG9 8DX</p>
-        <p>Join us for another evening of gaming, laughs, and good company! Bring your armies, dice, or favourite game—or just come along and join in! New players are always welcome.</p>
-      </div>
-    </section>
-
-    <section id="join" class="section">
-      <h2>Join Our Community</h2>
-      <p>
-        Interested in joining? We welcome players of at least 18+ at all experience levels.
-        Drop in at any event or send us a message to get started. We can't wait to meet you!
-      </p>
-    </section>
-
-    <section id="gallery" class="section">
-      <h2>Gallery</h2>
-      <p>Coming soon — battle reports, painted minis, and terrain builds!</p>
-    </section>
-
-    <section id="contact" class="section">
-      <h2>Contact Us</h2>
-      <p>Email: wigtownshirewargamers@gmail.com</p>
-      <p>Feel free to reach out to us on our social media platforms!</p>
-
-      <!-- Social icons for mobile -->
-      <div class="social-icons mobile-only">
-        <a href="https://www.instagram.com/wigtownshire_wargamers" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=61558303088413" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://discord.com/invite/63KRXus8T7" target="_blank"><i class="fab fa-discord"></i></a>
-      </div>
-    </section>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#join">Join</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    Coded by G.Snow 2025
-  </footer>
+  <div class="nav-social-icons">
+    <a href="https://www.instagram.com/wigtownshire_wargamers" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=61558303088413" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://discord.com/invite/63KRXus8T7" target="_blank"><i class="fab fa-discord"></i></a>
+  </div>
+</nav>
 
-  <!-- Scripts -->
-  <script src="script.js" defer></script>
 
+<!-- MAIN -->
+<div class="container">
+
+<section id="about" class="section">
+  <div class="event-card">
+    <h2>About Us</h2>
+    <p>
+      We are a community of tabletop gamers passionate about Warhammer 40,000, Age of Sigmar,
+      Horus Heresy, Kill Team, board games, tabletop RPGs and card gaming.
+      <br><br>
+      Beginners and veterans alike are always welcome.
+    </p>
+  </div>
+</section>
+
+
+<section id="calendar" class="section">
+  <div class="event-card">
+
+    <h2>Club Calendar</h2>
+
+    <p><strong>Where:</strong> Millennium Centre, 75 George St, Stranraer, DG9 8DX</p>
+    <p>We meet <strong>every second and fourth Sunday</strong> of the month at <strong>6:00pm</strong>.</p>
+
+    <a id="add-all-calendar" class="cta-button" download>
+      Add all dates to your calendar
+    </a>
+
+    <h3>Next sessions</h3>
+    <ul id="club-schedule"></ul>
+
+  </div>
+</section>
+
+
+<section id="join" class="section">
+  <div class="event-card">
+    <h2>Join Our Community</h2>
+    <p>
+      All players 18+ welcome. Turn up to any meeting or send us an email to get started.
+    </p>
+    <a href="mailto:wigtownshirewargamers@gmail.com" class="cta-button">
+      Join the Warband
+    </a>
+  </div>
+</section>
+
+
+<section id="gallery" class="section">
+  <div class="event-card">
+    <h2>Gallery</h2>
+    <p>Coming soon — painted minis, terrain builds and battle reports!</p>
+  </div>
+</section>
+
+
+<section id="contact" class="section">
+  <div class="event-card">
+    <h2>Contact Us</h2>
+    <p>Email: wigtownshirewargamers@gmail.com</p>
+  </div>
+</section>
+
+</div>
+
+
+<footer>
+  Coded by G. Snow — 2025
+</footer>
+
+
+<script src="script.js" defer></script>
 </body>
 </html>
