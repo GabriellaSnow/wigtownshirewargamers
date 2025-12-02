@@ -99,8 +99,8 @@ body::before{
   position: relative;
   z-index: 1;
 
-  height: 60vh;            /* ✅ Reduced from 90vh */
-  min-height: 400px;      /* ✅ Keeps impact on large screens */
+  height: 30vh;            /* ✅ Reduced from 90vh */
+  min-height: 350px;      /* ✅ Keeps impact on large screens */
 
 background:
   radial-gradient(
@@ -123,8 +123,8 @@ background:
 
   font-family: "Protest Revolution", sans-serif;
   text-align: center;
-   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .hero::after{
   content:"";
@@ -156,6 +156,11 @@ background:
   text-shadow:
     0 2px 4px rgba(0,0,0,0.35),
     0 0 12px rgba(120,190,255,0.35);
+}
+
+.banner-text,
+.logo{
+  transform: translateY(-16px);
 }
 
 
