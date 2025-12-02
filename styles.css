@@ -103,6 +103,9 @@ img{max-width:100%;}
 .logo{
   width:160px;
   max-width:40vw;
+
+  margin-bottom:14px;   /* adds spacing ABOVE the text */
+  transform: translateY(-10%);
 }
 
 .banner-text{
