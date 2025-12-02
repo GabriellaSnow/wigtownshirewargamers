@@ -150,7 +150,6 @@ window.addEventListener("scroll",()=>{
   if(!hero) return;
 
   const max=hero.offsetHeight;
-  const prog=Math.min(window.scrollY/max,1);
 
   document.querySelectorAll(".hero-dice").forEach((dice,i)=>{
 
