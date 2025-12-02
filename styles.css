@@ -102,7 +102,18 @@ body::before{
   height: 60vh;            /* ✅ Reduced from 90vh */
   min-height: 400px;      /* ✅ Keeps impact on large screens */
 
-  background: #6f91ad;
+background:
+  radial-gradient(
+    ellipse at center,
+    rgba(150,200,255,0.25),
+    rgba(60,90,120,0.85)
+  ),
+  linear-gradient(
+    135deg,
+    #4d6882,
+    #6f91ad,
+    #3b4f68
+  );
   color: white;
 
   display: flex;
@@ -142,6 +153,9 @@ body::before{
   letter-spacing: 0.08em;
   margin: 0;
   line-height: 1.05;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,0.35),
+    0 0 12px rgba(120,190,255,0.35);
 }
 
 
