@@ -2,8 +2,8 @@
   --bg-color: #0d0d0d;
   --text-color: #e5e5e5;
   --header-bg: #1a1a1a;
-  --link-color: white;
-  --link-hover: #285a77;
+  --link-color: rgb(53, 107, 151);
+  --link-hover: #ffffff;
 }
 
 /* Global Styles */
@@ -24,26 +24,89 @@ body, header, nav, footer, .event-card, .social-icons a, nav a, #theme-toggle {
   transition: background-color 0.4s, color 0.4s, border-color 0.4s;
 }
 
-/* Header */
-header {
-  background: url('banner.jpg') center/cover no-repeat;
-  height: 300px;
+/* Banner base */
+.banner {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
-  border-bottom: 3px solid #285a77;
-  position: relative;
-  background-color: var(--header-bg);
+  justify-content: space-between;
+  padding: 30px 20px;
+  background: #111;
+  color: white;
+  gap: 20px;
 }
 
-header h1 {
-  font-size: 3rem;
-  text-shadow: 0 0 15px #000;
-  color: var(--text-color);
-  max-width: 90%;
+/* Images */
+.banner-img img {
+  max-height: 140px;
+  width: auto;
+  object-fit: contain;
 }
+
+/* Center text */
+.banner-text {
+  flex: 1;
+  text-align: center;
+}
+
+/* ===== TABLET + MOBILE: hide images, keep clean title ===== */
+@media (max-width: 768px) {
+
+  /* hide the banner images on smaller screens */
+  .banner-img {
+    display: none;
+  }
+
+  /* center the heading nicely */
+  .banner {
+    justify-content: center;
+    padding: 20px 15px;
+  }
+
+  .banner-text {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+}
+
+/* Banner title hover animation */
+.banner-text h1 {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* underline effect */
+.banner-text h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background: var(--link-hover);
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+
+.banner-text h1:hover {
+  transform: translateY(-2px) scale(1.05);
+  text-shadow: 0 0 8px rgba(40,90,119,0.8);
+}
+
+/* Animate underline on hover */
+.banner-text h1:hover::after {
+  width: 100%;
+}
+@keyframes bannerPulse {
+  0%, 100% { text-shadow: 0 0 6px rgba(40,90,119,0.6); }
+  50% { text-shadow: 0 0 12px rgba(40,90,119,1); }
+}
+
+.banner-text h1:hover {
+  animation: bannerPulse 0.8s ease-in-out infinite alternate;
+}
+
 
 /* Navbar */
 nav {
@@ -109,7 +172,7 @@ nav {
   opacity: 0;
 }
 
-/* Mobile adjustments */
+/* Mobile adjustments for theme toggle */
 @media (max-width: 480px) {
   #theme-toggle {
     top: 10px;
@@ -171,13 +234,14 @@ h2 {
   margin-top: 20px;
 }
 
-.social-icons a {
-  color: var(--link-color);
-  font-size: 2rem;
+/* Force social icon color */
+.nav-social-icons a,
+.nav-social-icons a:visited {
+  color: var(--link-color);   /* change to whatever colour you want */
 }
 
-.social-icons a:hover {
-  color: var(--link-hover);
+.nav-social-icons a:hover {
+  color: var(--link-hover);   /* hover colour */
 }
 
 /* Mobile-only fallback */
@@ -204,27 +268,39 @@ body.light {
   --link-hover: #285a77;
 }
 
-/* Responsive Header */
+/* Responsive Header – without fixed heights */
 @media (max-width: 1024px) {
-  header { height: 250px; }
   header h1 { font-size: 2.5rem; }
 }
 
 @media (max-width: 768px) {
-  header { height: 200px; padding: 0 15px; }
+  header { padding: 10px 15px; }
   header h1 { font-size: 2rem; }
-  nav { flex-direction: column; align-items: center; gap: 15px; padding: 20px 10px; }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 10px;
+  }
+
   nav a { font-size: 1.1rem; }
   .hamburger { display: none; }
   .nav-social-icons { gap: 15px; }
 }
 
 @media (max-width: 480px) {
-  header { height: 150px; padding: 0 10px; }
+  header { padding: 5px 10px; }
   header h1 { font-size: 1.5rem; }
+
   .container { padding: 10px; }
 
-  nav { flex-direction: column; align-items: center; position: relative; padding: 10px; }
+  nav {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 10px;
+  }
 
   .hamburger { display: block; margin-bottom: 10px; }
 
@@ -241,6 +317,13 @@ body.light {
 
   .nav-social-icons { display: none; }
 
-  .mobile-only { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 15px; }
+  .mobile-only {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
+
   .social-icons a { font-size: 1.5rem; }
 }
