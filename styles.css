@@ -342,3 +342,65 @@ footer{
     gap:20px;
   }
 }
+
+
+/* ===========================
+   RESPONSIVE NAV
+=========================== */
+
+/* Hamburger hidden on desktop */
+.hamburger{
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 1.8rem;
+  color: var(--link);
+  cursor: pointer;
+}
+
+/* Tablet + mobile */
+@media(max-width: 900px){
+
+  .hamburger{
+    display: block;
+    margin-left: auto;
+  }
+
+  .nav-links{
+    width: 100%;
+    order: 10;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+
+    margin-top: 12px;
+
+    display: none;
+  }
+
+  /* Show menu when toggled */
+  .nav-links.active{
+    display: flex;
+  }
+
+  .nav-social-icons{
+    margin-left: 4px;
+  }
+
+  .main-nav{
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+/* Small phone sizing */
+@media(max-width: 500px){
+
+  .nav-social-icons a{
+    font-size: 1rem;
+  }
+
+  .nav-logo img{
+    width: 36px;
+  }
+}

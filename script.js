@@ -158,3 +158,19 @@ ${events}
 END:VCALENDAR`);
 
 }
+/* ===========================
+   MOBILE NAV TOGGLE
+=========================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const burger = document.querySelector(".hamburger");
+  const links = document.querySelector(".nav-links");
+
+  if(!burger || !links) return;
+
+  burger.addEventListener("click", () => {
+    links.classList.toggle("active");
+  });
+
+});
