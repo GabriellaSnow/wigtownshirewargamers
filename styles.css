@@ -95,22 +95,39 @@ body::before{
 /* ===========================
    HERO
 =========================== */
-
 .hero{
-  height:90vh;
-  min-height:500px;
+  position: relative;
+  z-index: 1;
 
-  background:#6f91ad;
-  color:white;
+  height: 60vh;            /* ✅ Reduced from 90vh */
+  min-height: 400px;      /* ✅ Keeps impact on large screens */
 
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  background: #6f91ad;
+  color: white;
 
-  font-family:"Protest Revolution", sans-serif;
-  text-align:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Protest Revolution", sans-serif;
+  text-align: center;
 }
+.hero::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:60px;
+
+  background:linear-gradient(
+    to bottom,
+    rgba(111,145,173,0),
+    var(--bg)
+  );
+}
+
 
 .logo{
   width:120px;
