@@ -2,9 +2,15 @@
   --bg-color: #0d0d0d;
   --text-color: #e5e5e5;
   --header-bg: #1a1a1a;
-  --link-color: rgb(53, 107, 151);
-  --link-hover: #ffffff;
+  --link-color: white;
+  --link-hover: #285a77;
+
+  /* NEW: card colours for dark mode */
+  --card-bg: #1a1a1a;
+  --card-border: #333;
+  --card-heading: #d9d9d9;
 }
+
 
 /* Global Styles */
 body {
@@ -24,6 +30,24 @@ body, header, nav, footer, .event-card, .social-icons a, nav a, #theme-toggle {
   transition: background-color 0.4s, color 0.4s, border-color 0.4s;
 }
 
+/* Light Theme */
+body.light {
+  --bg-color: #f4f4f4;
+  --text-color: #111;
+  --header-bg: #ddd;
+  --link-color: #111;
+  --link-hover: #285a77;
+
+  /* NEW: light mode card colours */
+  --card-bg: #d5e2ee;
+  --card-border: #ccc;
+  --card-heading: #111;
+}
+
+/* ===========================
+  BANNER
+   =========================== */
+
 /* Banner base */
 .banner {
   display: flex;
@@ -31,9 +55,11 @@ body, header, nav, footer, .event-card, .social-icons a, nav a, #theme-toggle {
   align-items: center;
   justify-content: space-between;
   padding: 30px 20px;
-  background: #111;
+  background: radial-gradient(circle at top left, #285a77 0, #111 40%, #000 100%);
+  background-size: 200% 200%;
   color: white;
   gap: 20px;
+  animation: bannerGlowSlow 18s ease-in-out infinite alternate;
 }
 
 /* Images */
@@ -49,9 +75,70 @@ body, header, nav, footer, .event-card, .social-icons a, nav a, #theme-toggle {
   text-align: center;
 }
 
+/* Banner title: entrance + hover animation */
+.banner-text h1 {
+  position: relative;
+  display: inline-block;
+
+  /* entrance state */
+  opacity: 0;
+  transform: translateY(10px);
+
+  /* entrance animation */
+  animation: bannerFadeUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+
+  /* hover transition */
+  transition: transform 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* Underline for banner title */
+.banner-text h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background: var(--link-hover);
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+
+/* Hover effect for banner title */
+.banner-text h1:hover {
+  transform: translateY(-2px) scale(1.05);
+  text-shadow: 0 0 8px rgba(40, 90, 119, 0.8);
+}
+
+.banner-text h1:hover::after {
+  width: 100%;
+}
+
+/* Banner title entrance keyframes */
+@keyframes bannerFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slow ambient banner shimmer */
+@keyframes bannerGlowSlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
 /* ===== TABLET + MOBILE: hide images, keep clean title ===== */
 @media (max-width: 768px) {
-
   /* hide the banner images on smaller screens */
   .banner-img {
     display: none;
@@ -69,46 +156,10 @@ body, header, nav, footer, .event-card, .social-icons a, nav a, #theme-toggle {
   }
 }
 
-/* Banner title hover animation */
-.banner-text h1 {
-  position: relative;
-  display: inline-block;
-  transition: transform 0.25s ease, text-shadow 0.25s ease;
-}
+/* ===========================
+   NAVBAR
+   =========================== */
 
-/* underline effect */
-.banner-text h1::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -8px;
-  width: 0;
-  height: 2px;
-  background: var(--link-hover);
-  transform: translateX(-50%);
-  transition: width 0.25s ease;
-}
-
-.banner-text h1:hover {
-  transform: translateY(-2px) scale(1.05);
-  text-shadow: 0 0 8px rgba(40,90,119,0.8);
-}
-
-/* Animate underline on hover */
-.banner-text h1:hover::after {
-  width: 100%;
-}
-@keyframes bannerPulse {
-  0%, 100% { text-shadow: 0 0 6px rgba(40,90,119,0.6); }
-  50% { text-shadow: 0 0 12px rgba(40,90,119,1); }
-}
-
-.banner-text h1:hover {
-  animation: bannerPulse 0.8s ease-in-out infinite alternate;
-}
-
-
-/* Navbar */
 nav {
   background-color: var(--header-bg);
   padding: 10px 20px;
@@ -133,6 +184,22 @@ nav {
   font-weight: bold;
   display: inline-flex;
   align-items: center;
+
+  position: relative;   /* for underline */
+  overflow: hidden;
+}
+
+/* sliding underline */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: var(--link-hover);
+  transform: translateX(-50%);
+  transition: width 0.2s ease;
 }
 
 .nav-links a i {
@@ -143,11 +210,28 @@ nav {
   color: var(--link-hover);
 }
 
+.nav-links a:hover::after {
+  width: 100%;
+}
+
 /* Navbar social icons */
 .nav-social-icons {
   display: flex;
   gap: 15px;
   align-items: center;
+}
+
+/* Social icon color + animation */
+.nav-social-icons a,
+.nav-social-icons a:visited {
+  color: var(--link-color);
+  transition: transform 0.25s ease, filter 0.25s ease, color 0.25s ease;
+}
+
+.nav-social-icons a:hover {
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 0 6px rgba(40, 90, 119, 0.7));
+  color: var(--link-hover);
 }
 
 /* Theme toggle button */
@@ -196,7 +280,10 @@ nav {
   right: 20px;
 }
 
-/* Container and Sections */
+/* ===========================
+   LAYOUT / CONTENT
+   =========================== */
+
 .container {
   max-width: 1000px;
   margin: 40px auto;
@@ -207,26 +294,76 @@ nav {
   margin-bottom: 60px;
 }
 
+/* Section headings with entrance animation */
 h2 {
   color: #285a77;
   border-left: 5px solid #285a77;
   padding-left: 10px;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: sectionFadeUp 0.6s ease-out forwards;
+  animation-delay: 0.4s;
 }
 
+/* Section headings entrance animation */
+@keyframes sectionFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Event cards with hover animation */
 .event-card {
-  background: #1a1a1a;
+  background: var(--card-bg);
   padding: 20px;
   border-radius: 8px;
-  border: 1px solid #333;
+  border: 1px solid var(--card-border);
   margin-bottom: 20px;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  border-color: #285a77;
+  box-shadow: 0 0 14px rgba(40, 90, 119, 0.6);
 }
 
 .event-card h3 {
   margin-top: 0;
-  color: #d9d9d9;
+  color: var(--card-heading);
 }
 
-/* Social Icons */
+/* Call-to-action button */
+.cta-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid #285a77;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+
+  box-shadow: 0 0 10px rgba(40, 90, 119, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(135deg, #285a77, #1a1a1a);
+  box-shadow: 0 0 18px rgba(40, 90, 119, 0.8);
+}
+
+/* Social Icons (general) */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -234,14 +371,13 @@ h2 {
   margin-top: 20px;
 }
 
-/* Force social icon color */
-.nav-social-icons a,
-.nav-social-icons a:visited {
-  color: var(--link-color);   /* change to whatever colour you want */
+.social-icons a {
+  color: var(--link-color);
+  font-size: 2rem;
 }
 
-.nav-social-icons a:hover {
-  color: var(--link-hover);   /* hover colour */
+.social-icons a:hover {
+  color: var(--link-hover);
 }
 
 /* Mobile-only fallback */
@@ -259,23 +395,29 @@ footer {
   margin-top: 80px;
 }
 
-/* Light Theme */
-body.light {
-  --bg-color: #f4f4f4;
-  --text-color: #111;
-  --header-bg: #ddd;
-  --link-color: #111;
-  --link-hover: #285a77;
-}
 
-/* Responsive Header – without fixed heights */
+
+
+/* ===========================
+   RESPONSIVE HEADER & NAV
+   =========================== */
+
+/* No fixed heights on header – it grows with content */
+
 @media (max-width: 1024px) {
-  header h1 { font-size: 2.5rem; }
+  header h1 {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 768px) {
-  header { padding: 10px 15px; }
-  header h1 { font-size: 2rem; }
+  header {
+    padding: 10px 15px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
 
   nav {
     flex-direction: column;
@@ -284,16 +426,31 @@ body.light {
     padding: 20px 10px;
   }
 
-  nav a { font-size: 1.1rem; }
-  .hamburger { display: none; }
-  .nav-social-icons { gap: 15px; }
+  nav a {
+    font-size: 1.1rem;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .nav-social-icons {
+    gap: 15px;
+  }
 }
 
 @media (max-width: 480px) {
-  header { padding: 5px 10px; }
-  header h1 { font-size: 1.5rem; }
+  header {
+    padding: 5px 10px;
+  }
 
-  .container { padding: 10px; }
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 10px;
+  }
 
   nav {
     flex-direction: column;
@@ -302,7 +459,10 @@ body.light {
     padding: 10px;
   }
 
-  .hamburger { display: block; margin-bottom: 10px; }
+  .hamburger {
+    display: block;
+    margin-bottom: 10px;
+  }
 
   .nav-links {
     flex-direction: column;
@@ -315,7 +475,9 @@ body.light {
     display: flex;
   }
 
-  .nav-social-icons { display: none; }
+  .nav-social-icons {
+    display: none;
+  }
 
   .mobile-only {
     display: flex;
@@ -325,5 +487,24 @@ body.light {
     margin-top: 15px;
   }
 
-  .social-icons a { font-size: 1.5rem; }
+  .social-icons a {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===========================
+   REDUCED MOTION SUPPORT
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+  .banner-text h1,
+  h2 {
+    animation: none;
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .banner {
+    animation: none;
+  }
 }
