@@ -1,7 +1,6 @@
 /* ===========================
    THEME VARIABLES
 =========================== */
-
 :root{
   --accent:#6f91ad;
   --bg:#eef2f6;
@@ -26,114 +25,74 @@ body.dark{
   --card-border:#333;
 }
 
-
 /* ===========================
    BASE
 =========================== */
-
 body{
   margin:0;
-  font-family:Segoe UI, Tahoma, sans-serif;
+  font-family:Segoe UI,Tahoma,sans-serif;
   background:var(--bg);
   color:var(--text);
 }
 
-img{
-  max-width:100%;
-}
-
-
-/* ===========================
-   BACKGROUND SCENE
-=========================== */
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;
-
-  background:
-    url("assets/game2.jpg") left center / 35% auto no-repeat,
-    url("assets/game3.jpg") right center / 35% auto no-repeat,
-    linear-gradient(
-      rgba(13,13,13,.90),
-      rgba(13,13,13,.96)
-    );
-
-  background-attachment:fixed;
-  pointer-events:none;
-}
-
+img{max-width:100%;}
 
 /* ===========================
    THEME TOGGLE
 =========================== */
-
 #theme-toggle{
   position:fixed;
   top:64px;
   right:16px;
   z-index:1000;
-
   font-size:1.1rem;
   padding:7px 10px;
   border-radius:50%;
   border:none;
   background:#fff;
-
   cursor:pointer;
   box-shadow:0 4px 8px rgba(0,0,0,.25);
-  transition:.2s ease;
 }
 
 #theme-toggle:hover{
   transform:scale(1.1);
 }
 
-
 /* ===========================
    HERO
 =========================== */
 .hero{
-  position: relative;
-  z-index: 1;
+  position:relative;
+  z-index:1;
 
-  height: 30vh;            /* ✅ Reduced from 90vh */
-  min-height: 350px;      /* ✅ Keeps impact on large screens */
+  height:30vh;
+  min-height:350px;
 
-background:
-  radial-gradient(
-    ellipse at center,
-    rgba(150,200,255,0.25),
-    rgba(60,90,120,0.85)
-  ),
-  linear-gradient(
-    135deg,
-    #4d6882,
-    #6f91ad,
-    #3b4f68
-  );
-  color: white;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(150,200,255,0.25),
+      rgba(60,90,120,0.85)
+    ),
+    linear-gradient(135deg,#4d6882,#6f91ad,#3b4f68);
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  color:white;
 
-  font-family: "Protest Revolution", sans-serif;
-  text-align: center;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  font-family:"Protest Revolution",sans-serif;
+  text-align:center;
 }
+
 .hero::after{
   content:"";
   position:absolute;
-  bottom:0;
   left:0;
   right:0;
+  bottom:0;
   height:60px;
-
   background:linear-gradient(
     to bottom,
     rgba(111,145,173,0),
@@ -141,33 +100,51 @@ background:
   );
 }
 
-
-.logo {
-  width: 160px;
-  max-width: 40vw;
-  margin-bottom: 8px;
-}
-
-.banner-text h1 {
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  letter-spacing: 0.08em;
-  margin: 0;
-  line-height: 1.05;
-  text-shadow:
-    0 2px 4px rgba(0,0,0,0.35),
-    0 0 12px rgba(120,190,255,0.35);
-}
-
-.banner-text,
 .logo{
-  transform: translateY(-16px);
+  width:160px;
+  max-width:40vw;
 }
 
+.banner-text{
+  transform:translateY(-16px);
+}
+
+.banner-text h1{
+  font-size:clamp(3rem,6vw,4.5rem);
+  margin:0;
+  line-height:1.05;
+  letter-spacing:.08em;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,.35),
+    0 0 12px rgba(120,190,255,.35);
+}
 
 /* ===========================
-   STICKY NAVBAR
+   BACKGROUND PHOTO LAYER ✅
 =========================== */
+.background-scene{
+  position: fixed;
+  top:85vh; /* Keeps images BELOW hero */
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:-2;
+  pointer-events:none;
 
+  background:
+    url("assets/game2.jpg") left 55% / auto 300px no-repeat,
+    url("assets/game3.jpg") right 55% / auto 300px no-repeat,
+    linear-gradient(
+      rgba(13,13,13,0.95),
+      rgba(13,13,13,0.96)
+    );
+
+  background-attachment:fixed;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
 .main-nav{
   position:sticky;
   top:0;
@@ -184,12 +161,8 @@ background:
   box-shadow:0 3px 12px rgba(0,0,0,0.15);
 }
 
-/* Logo */
-.nav-logo img{
-  width:42px;
-}
+.nav-logo img{width:42px;}
 
-/* Links */
 .nav-links{
   display:flex;
   gap:40px;
@@ -199,13 +172,11 @@ background:
   color:var(--link);
   text-decoration:none;
   font-weight:600;
-  letter-spacing:0.04em;
+  letter-spacing:.04em;
   position:relative;
 }
 
-.nav-links a:hover{
-  color:var(--hover);
-}
+.nav-links a:hover{color:var(--hover);}
 
 .nav-links a::after{
   content:"";
@@ -216,14 +187,12 @@ background:
   height:2px;
   background:var(--accent);
   transform:translateX(-50%);
-  transition:width .25s;
+  transition:.25s;
 }
 
 .nav-links a:hover::after{
   width:100%;
 }
-
-/* Social */
 
 .nav-social-icons{
   display:flex;
@@ -241,11 +210,9 @@ background:
   transform:translateY(-2px) scale(1.1);
 }
 
-
 /* ===========================
-   MAIN CONTENT
+   CONTENT
 =========================== */
-
 .container{
   max-width:960px;
   margin:50px auto;
@@ -262,51 +229,83 @@ h2{
   padding-left:10px;
 }
 
-
 /* ===========================
    EVENT CARDS
 =========================== */
-
 .event-card{
   background:var(--card-bg);
   border:1px solid var(--card-border);
   border-radius:14px;
-
   padding:28px;
+
   backdrop-filter:blur(6px);
 
-  /* Base shadow */
-  box-shadow:0 8px 16px rgba(0,0,0,.25);
+  box-shadow:0 8px 16px rgba(0,0,0,0.25);
 
-  /* Smooth glow animation */
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+  transition:.25s ease;
 }
 
-/* ✨ Hover glow effect */
 .event-card:hover{
-  transform: translateY(-4px);
-
-  border-color: var(--accent);
-
+  transform:translateY(-4px);
+  border-color:var(--accent);
   box-shadow:
-    0 12px 26px rgba(0,0,0,0.35),
-    0 0 12px rgba(111,145,173,0.45),
-    0 0 24px rgba(111,145,173,0.15);
-}
-.event-card:hover h2 {
-  color: #9cc4df;
+    0 12px 26px rgba(0,0,0,.35),
+    0 0 12px rgba(111,145,173,.45),
+    0 0 24px rgba(111,145,173,.15);
 }
 
+.event-card:hover h2{
+  color:#9cc4df;
+}
 
+/* ===========================
+   GALLERY
+=========================== */
+
+.gallery-grid{
+  margin-top:20px;
+
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+  gap:14px;
+}
+
+.gallery-grid img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+
+  border-radius:12px;
+
+  box-shadow:0 6px 14px rgba(0,0,0,0.35);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
+}
+
+/* Hover effect */
+.gallery-grid img:hover{
+  transform:translateY(-5px) scale(1.02);
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.45),
+    0 0 12px rgba(111,145,173,0.35);
+
+  filter:brightness(1.08);
+}
+
+/* Mobile tweak */
+@media(max-width:500px){
+  .gallery-grid img{
+    height:180px;
+  }
+}
 
 
 /* ===========================
    BUTTONS
 =========================== */
-
 .add-to-calendar,
 .cta-button{
   display:inline-flex;
@@ -321,15 +320,13 @@ h2{
 
   background:linear-gradient(
     135deg,
-    rgba(111,145,173,0.15),
-    rgba(40,90,119,0.45)
+    rgba(111,145,173,.15),
+    rgba(40,90,119,.45)
   );
 
   text-decoration:none;
   font-weight:600;
   color:var(--accent);
-
-  transition:.2s ease;
 }
 
 .add-to-calendar:hover,
@@ -342,11 +339,9 @@ h2{
   color:white;
 }
 
-
 /* ===========================
    CALENDAR
 =========================== */
-
 #club-schedule{
   list-style:none;
   padding:0;
@@ -356,11 +351,9 @@ h2{
   margin-bottom:10px;
 }
 
-
 /* ===========================
    FOOTER
 =========================== */
-
 footer{
   background:#111;
   color:#777;
@@ -368,82 +361,45 @@ footer{
   text-align:center;
 }
 
-
-/* ===========================
-   MOBILE
-=========================== */
-
-@media(max-width:768px){
-
-  .main-nav{
-    flex-wrap:wrap;
-    gap:22px;
-    justify-content:center;
-  }
-
-  .nav-links{
-    gap:20px;
-  }
-}
-
-
 /* ===========================
    RESPONSIVE NAV
 =========================== */
-
-/* Hamburger hidden on desktop */
 .hamburger{
-  display: none;
-  background: none;
-  border: 0;
-  font-size: 1.8rem;
-  color: var(--link);
-  cursor: pointer;
+  display:none;
+  background:none;
+  border:0;
+  font-size:1.8rem;
+  color:var(--link);
+  cursor:pointer;
 }
 
-/* Tablet + mobile */
-@media(max-width: 900px){
+@media(max-width:900px){
 
   .hamburger{
-    display: block;
-    margin-left: auto;
+    display:block;
+    margin-left:auto;
   }
 
   .nav-links{
-    width: 100%;
-    order: 10;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
+    width:100%;
+    margin-top:12px;
+    gap:18px;
 
-    margin-top: 12px;
-
-    display: none;
+    display:none;
+    flex-direction:column;
+    align-items:center;
   }
 
-  /* Show menu when toggled */
   .nav-links.active{
-    display: flex;
-  }
-
-  .nav-social-icons{
-    margin-left: 4px;
+    display:flex;
   }
 
   .main-nav{
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
   }
 }
 
-/* Small phone sizing */
-@media(max-width: 500px){
-
-  .nav-social-icons a{
-    font-size: 1rem;
-  }
-
-  .nav-logo img{
-    width: 36px;
-  }
+@media(max-width:500px){
+  .nav-logo img{width:36px;}
+  .nav-social-icons a{font-size:1rem;}
 }

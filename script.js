@@ -1,16 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initCalendar();
+  initNav();
 });
 
 /* ===========================
-   THEME
+   THEME TOGGLE
 =========================== */
-
 function initTheme() {
 
   const body = document.body;
   const toggle = document.getElementById("theme-toggle");
+
   if (!toggle) return;
 
   const saved = localStorage.getItem("theme");
@@ -23,7 +24,6 @@ function initTheme() {
   }
 
   toggle.addEventListener("click", () => {
-
     body.classList.toggle("dark");
 
     const isDark = body.classList.contains("dark");
@@ -31,16 +31,27 @@ function initTheme() {
     toggle.textContent = isDark ? "☀️" : "🌙";
 
     localStorage.setItem("theme", isDark ? "dark" : "light");
-
   });
-
 }
 
+/* ===========================
+   MOBILE NAV
+=========================== */
+function initNav(){
+
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector(".nav-links");
+
+  if (!hamburger || !nav) return;
+
+  hamburger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+}
 
 /* ===========================
    CALENDAR
 =========================== */
-
 function initCalendar() {
 
   const list = document.getElementById("club-schedule");
@@ -56,17 +67,13 @@ function initCalendar() {
 
     li.innerHTML = `
       ${formatDate(date)}
-
-      <a class="add-to-calendar"
-         href="${singleICS(date)}"
-         download>
-         <i class="fa-solid fa-calendar-plus"></i> Add
+      <a class="add-to-calendar" href="${singleICS(date)}" download>
+        <i class="fa-solid fa-calendar-plus"></i> Add
       </a>
-
       <a class="add-to-calendar"
          target="_blank"
          href="https://www.google.com/maps/search/?api=1&query=Millennium+Centre+75+George+St+Stranraer">
-         <i class="fa-solid fa-map-location-dot"></i> Map
+        <i class="fa-solid fa-map-location-dot"></i> Map
       </a>
     `;
 
@@ -76,19 +83,16 @@ function initCalendar() {
   addAllBtn.href = buildICS(events);
 }
 
-
 /* ===========================
    DATE RULE
 =========================== */
-
 function getNextDates(count) {
 
-  const dates = [];
+  const arr = [];
   const d = new Date();
-
   d.setHours(18, 0, 0, 0);
 
-  while (dates.length < count) {
+  while (arr.length < count) {
 
     d.setDate(d.getDate() + 1);
 
@@ -97,14 +101,12 @@ function getNextDates(count) {
       const week = Math.floor((d.getDate() - 1) / 7) + 1;
 
       if (week === 1 || week === 3) {
-        dates.push(new Date(d));
+        arr.push(new Date(d));
       }
-
     }
   }
 
-  return dates;
-
+  return arr;
 }
 
 function formatDate(d) {
@@ -112,31 +114,28 @@ function formatDate(d) {
   return d.toLocaleDateString("en-GB", {
     weekday: "long",
     day: "numeric",
-    month: "long"
+    month: "long",
   }) + " · 6:00pm";
-
 }
-
 
 /* ===========================
    ICS BUILDER
 =========================== */
-
 function singleICS(date) {
   return buildICS([date]);
 }
 
 function buildICS(arr) {
 
-  const events = arr.map(d => {
+  const items = arr.map(d => {
 
     const start = d.toISOString()
-      .replace(/[-:]/g,"")
+      .replace(/[-:]/g, "")
       .split(".")[0];
 
     const end = new Date(d.getTime() + 3 * 3600000)
       .toISOString()
-      .replace(/[-:]/g,"")
+      .replace(/[-:]/g, "")
       .split(".")[0];
 
     return `
@@ -147,30 +146,11 @@ DTEND:${end}
 LOCATION:Millennium Centre, 75 George St, Stranraer
 DESCRIPTION:Every first and third Sunday at 6pm
 END:VEVENT`;
-
   }).join("");
 
-  return "data:text/calendar;charset=utf8," +
-    encodeURIComponent(`
+  return "data:text/calendar;charset=utf8," + encodeURIComponent(`
 BEGIN:VCALENDAR
 VERSION:2.0
-${events}
+${items}
 END:VCALENDAR`);
-
 }
-/* ===========================
-   MOBILE NAV TOGGLE
-=========================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const burger = document.querySelector(".hamburger");
-  const links = document.querySelector(".nav-links");
-
-  if(!burger || !links) return;
-
-  burger.addEventListener("click", () => {
-    links.classList.toggle("active");
-  });
-
-});
