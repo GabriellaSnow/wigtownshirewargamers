@@ -2,7 +2,7 @@
    THEME VARIABLES
 =========================== */
 :root{
-  --accent:#6f91ad;
+  --accent:#547B97;
   --bg:#eef2f6;
   --text:#111;
   --header-bg:#d7e1ea;
@@ -11,15 +11,14 @@
   --card-border:rgba(40,90,119,0.25);
 
   --link:#111;
-  --hover:#285a77;
+  --hover:#547B97;
 }
 
 body.dark{
   --bg:#0d0d0d;
   --text:#e5e5e5;
   --header-bg:#1a1a1a;
-  --link:#fff;
-  --hover:#6f91ad;
+  --link:#547B97;
 
   --card-bg:rgba(26,26,26,0.88);
   --card-border:#333;
@@ -82,7 +81,9 @@ img{max-width:100%;}
   justify-content:center;
   align-items:center;
 
-  font-family:"Protest Revolution",sans-serif;
+  font-family:"CCMonsterMash W00 Regular" ,sans-serif;
+  font-style: normal;
+  font-weight: 400;
   text-align:center;
 }
 
