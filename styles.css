@@ -8,7 +8,7 @@
   --header-bg:#d7e1ea;
 
   --card-bg:rgba(255,255,255,0.82);
-  --card-border:rgba(40,90,119,0.25);
+  --card-border:#547B97;
 
   --link:#111;
   --hover:#547B97;
@@ -29,7 +29,7 @@ body.dark{
 =========================== */
 body{
   margin:0;
-  font-family:Segoe UI,Tahoma,sans-serif;
+  font-family:source sans 3,Tahoma,sans-serif;
   background:var(--bg);
   color:var(--text);
 }
